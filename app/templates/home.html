@@ -3,7 +3,7 @@
 <h1>Hot Tomato</h1>
 <div ng-controller="TimerCtrl as timer">
 
-  <button class="clock">{{timer.count}}</button></br>
+  <button class="clock">{{time}}</button></br>
 
   <button class= "btn btn-default" ng-click=session() ng-show=!onBreak> {{ timer.startButton }} </button>
   <button class= "btn btn-default" ng-click=timer.resetSession() ng-hide=!onBreak> {{ timer.resetButton }} </button>

@@ -4,19 +4,24 @@
       this.startButton = "Start a Session";
       this.resetButton = "Reset Session";
       this.breakButton = "Take a Break";
-      this.count = 1500;
+      $scope.time = 1500;
+      console.log("I hear you!")
 
       $scope.onBreak = false; //boolean value to trigger button change
       var stop;
 
+      var timer;
+
+      var countdown = function() {
+        $scope.time = $scope.time - 1000
+
+        if($scope.time <= 0) {
+          $interval.cancel(timer);
+        }
+      }
+
       $scope.session = function() {
-        stop = $interval(function() {
-          if ($scope.count > 0 ){
-            $scope.count--;
-          } else {
-            $scope.stopSession();
-          }
-        }, 100); //this is the delay
+        timer = $interval(countdown, 2000)
       };
 
       $scope.stopSession = function() {
@@ -28,6 +33,7 @@
       };
 
       $scope.resetSession = function() {
+        console.log("I hear you too!")
         $scope.count = 1500;
       };
 
