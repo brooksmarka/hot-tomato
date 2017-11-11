@@ -1,1 +1,10 @@
-<h1>Home Page</h1>
+
+
+<h1>Hot Tomato</h1>
+<div ng-controller="TimerCtrl as timer">
+
+  <button class="clock">{{time | timecode}}</button></br>
+
+  <button class= "btn btn-default" ng-click="timerTrigger()" ng-show=!onBreak> {{buttonMsg}} </button>
+
+</div>

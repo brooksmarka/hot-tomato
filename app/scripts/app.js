@@ -16,5 +16,14 @@
 
   angular
     .module('hotTomato', ['ui.router', 'firebase'])
-    .config(config);
+    .config(config)
+    .constant('CLOCK_TIMES', {
+      "totalWorkTime":1500,
+      "totalBreakTime": 300,
+      "totalLongBreakTime": 1800,
+      "defaultWorkTime": 1500,
+      "defaultBreakTime": 300,
+      "defaultLongBreakTime": 1800
+    });
+
 })();
