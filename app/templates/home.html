@@ -6,5 +6,6 @@
   <button class="clock">{{time | timecode}}</button></br>
 
   <button class= "btn btn-default" ng-click="timerTrigger()" ng-show=!onBreak> {{buttonMsg}} </button>
+  <button class= "btn btn-default" ng-click="timerTrigger()" ng-hide=!onBreak> {{breakButtonMsg}} </button>
 
 </div>
