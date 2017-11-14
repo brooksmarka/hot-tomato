@@ -14,8 +14,13 @@
 
       var timer;
 
+      var mySound = new buzz.sound( "/sounds/sound.mp3", {
+        preload: true
+      });
+
       $scope.timerTrigger = function() {
           console.log("This is timer trigger!")
+          mySound.play();
           console.log($scope.buttonMsg)
           console.log($scope.breakButtonMsg)
           if( $scope.buttonMsg === "Reset Session" && $scope.onBreak == false ) {
@@ -36,21 +41,21 @@
         };
 
       var countdown = function() {
-        $scope.time = $scope.time - 100
+        $scope.time = $scope.time - 200
         console.log(sessionCount);
         $scope.buttonMsg = "Reset Session";
         if($scope.time <= 0 && $scope.onBreak == false ) {
+          mySound.play();
+          console.log("sound should play")
           sessionCount++;
           console.log(sessionCount);
           setBreak();
         }else if ($scope.time <= 0 && $scope.onBreak == true){
+          mySound.play();
+          console.log("sound should play")
           resetSession();
         }
       };
-
-      //currently it is resetting to a long break only after an break session. This is when onBreak has been set to true on setBreak and not after an actual session.
-
-      // first session ticks down.
 
       var resetSession = function() {
         console.log("This is resetSession!")
