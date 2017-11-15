@@ -1,11 +1,37 @@
+<section class="container" ng-controller="TimerCtrl as timer">
+    <div class="left-column">
+
+      <h3> New Task</h3>
+      <div class="input-field">
+        <input type="text" name="input" ng-model="task" />
+      </div>
+      <div class="submit-task">
+        <button class="button" ng-click="submitTask()"> Save </button>
+      </div>
+        <div class ="task" ng-repeat="task in tasks"> {{task.$value}} </div>
 
 
-<h1>Hot Tomato</h1>
-<div ng-controller="TimerCtrl as timer">
+    </div>
+  <div class ="right-column" ng-controller="TimerCtrl as timer">
+      <div class="column-header">
+        <h1 > Hot Tomato </h1>
+      </div>
+    <button class="clock">{{time | timecode}}</button></br>
 
-  <button class="clock">{{time | timecode}}</button></br>
+    <button class= "btn btn-default" ng-click="timerTrigger()" ng-show=!onBreak> {{buttonMsg}} </button>
+    <button class= "btn btn-default" ng-click="timerTrigger()" ng-hide=!onBreak> {{breakButtonMsg}} </button>
+  </div>
+</section>
 
-  <button class= "btn btn-default" ng-click="timerTrigger()" ng-show=!onBreak> {{buttonMsg}} </button>
-  <button class= "btn btn-default" ng-click="timerTrigger()" ng-hide=!onBreak> {{breakButtonMsg}} </button>
 
-</div>
+<!--
+<form ng-submit="timerTrigger()">
+  <h4>Add Task</h4>
+  <input type="text" name="input" ng-model="taskText" />
+  <button class = "btn btn-default" type="submit">+</button>
+</form>
+<ul>
+  <li ng-repeat="task in tasks"> {{task.task }}</li>
+</ul>
+
+-->
