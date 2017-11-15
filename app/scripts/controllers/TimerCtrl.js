@@ -1,12 +1,14 @@
 (function() {
 
-    function TimerCtrl($scope, $interval, CLOCK_TIMES) {
+    function TimerCtrl($scope, $interval, CLOCK_TIMES, Task) {
       $scope.buttonMsg = "Start a Session";
       $scope.breakButtonMsg = "Start a Break";
       //$scope.time = 1500;
       $scope.time = CLOCK_TIMES.totalWorkTime;
       $scope.onBreak = false;
       $scope.format = 'mm:ss';
+      $scope.task = '';
+      $scope.tasks = Task.all;
 
       console.log("TimerCtrl Hears you!")
 
@@ -17,6 +19,13 @@
       var mySound = new buzz.sound( "/sounds/sound.mp3", {
         preload: true
       });
+
+      $scope.submitTask = function() {
+        Task.add($scope.task);
+        $scope.task = '';
+        console.log(Task);
+      }
+
 
       $scope.timerTrigger = function() {
           console.log("This is timer trigger!")
@@ -89,5 +98,5 @@
 
     angular
         .module('hotTomato')
-        .controller('TimerCtrl', ['$scope', '$interval', 'CLOCK_TIMES', TimerCtrl]);
+        .controller('TimerCtrl', ['$scope', '$interval', 'CLOCK_TIMES', 'Task', TimerCtrl]);
 })();
