@@ -8,7 +8,7 @@
       <div class="submit-task">
         <button class="button" ng-click="submitTask()"> Save </button>
       </div>
-        <div class ="task" ng-repeat="task in tasks"> {{task.$value}} </div>
+        <div class ="task" ng-repeat="task in tasks | orderBy : '-$id'"> {{task.$value}} </div>
 
 
     </div>
